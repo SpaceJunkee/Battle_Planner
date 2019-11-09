@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".about_us"></activity>
+        <activity android:name=".AboutUs"/>
         <activity android:name=".SavedMapsActivity" />
         <activity
             android:name=".MainActivity"

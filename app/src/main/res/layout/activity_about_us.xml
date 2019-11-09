@@ -4,6 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".about_us">
+    android:background="#212121"
+    tools:context=".AboutUs" >
 
+    <Button
+        android:id="@+id/donateButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/donate_button"
+        android:text="DONATE"
+        android:textColor="#14ffec"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/aboutusParagraphText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#323232"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#FAFAE8"
+        app:layout_constraintBottom_toTopOf="@+id/donateButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyName" />
+
+    <EditText
+        android:id="@+id/companyName"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="#323232"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="YeEt LTD."
+        android:textColor="#FAFAE8"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
