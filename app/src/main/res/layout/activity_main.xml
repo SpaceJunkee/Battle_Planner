@@ -18,7 +18,7 @@
         android:text="S"
         android:textColor="#14ffec"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintStart_toEndOf="@+id/appTitle"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -30,7 +30,7 @@
         android:background="@drawable/roundbutton"
         android:text="A"
         android:textColor="#14ffec"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
+        app:layout_constraintEnd_toStartOf="@+id/appTitle"
         app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="#323232"
@@ -49,14 +49,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editText"
+    <TextView
+        android:id="@+id/appTitle"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="24dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="    BATTLE PLANNER"
+        android:text="BATTLE PLANNER"
+        android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="#14ffec"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/mapsReyclerList"

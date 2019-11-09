@@ -10,13 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
@@ -28,7 +32,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private Context context;
 
     //Constructor
-    public RecyclerViewAdapter(ArrayList<String> mapNamesArr, ArrayList<String> mapImagesArr, Context context) {
+    public RecyclerViewAdapter(Context context, ArrayList<String> mapNamesArr, ArrayList<String> mapImagesArr) {
         this.mapNamesArr = mapNamesArr;
         this.mapImagesArr = mapImagesArr;
         this.context = context;
@@ -45,13 +49,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    //Will get the items per each position in the list
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        Glide.with(context).asBitmap().load(mapImagesArr.get(position)).into(holder.mapImages);
 
+        holder.mapNames.setText(mapNamesArr.get(position));
+
+        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, mapNamesArr.get(position),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
+    //Tells the adapter how many list items are in the list
     public int getItemCount() {
-        return 0;
+
+        return mapNamesArr.size();
     }
 
     //Holds widgets in memory and recycles when necessary
