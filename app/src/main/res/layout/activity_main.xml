@@ -4,27 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5C6BC0"
+    android:background="#212121"
     android:backgroundTintMode="add"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/savedMaps"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/roundbutton"
-        android:text="Saved"
-        app:layout_constraintBottom_toTopOf="@+id/mapScroll"
+        android:text="S"
+        android:textColor="#14ffec"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/aboutUs"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/roundbutton"
+        android:text="A"
+        android:textColor="#14ffec"
+        app:layout_constraintEnd_toStartOf="@+id/editText"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mapScroll"
+        android:id="@+id/mapsReyclerList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="96dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#323232"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,15 +52,18 @@
     <EditText
         android:id="@+id/editText"
         android:layout_width="250dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="65dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="64dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="CodBattlePlanner"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/mapScroll"
-        app:layout_constraintEnd_toStartOf="@+id/savedMaps"
+        android:text="    BATTLE PLANNER"
+        android:textColor="#14ffec"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/mapsReyclerList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

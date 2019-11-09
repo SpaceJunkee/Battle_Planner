@@ -1,6 +1,7 @@
 package com.example.codbattleplanner;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,11 +15,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Creating Buttons
-        Button saveedMapsButton = findViewById(R.id.savedMaps);
+        //Buttons
+        Button savedMapsButton = findViewById(R.id.savedMaps);
+        Button aboutUsButton = findViewById(R.id.aboutUs);
 
         //Setting savedMapsButton to access new list activity
-        saveedMapsButton.setOnClickListener(new View.OnClickListener() {
+        savedMapsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent savedMapsScreen = new Intent(getApplicationContext(), SavedMapsActivity.class);
@@ -26,5 +28,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(savedMapsScreen);
             }
         });
+
+        //Setting about button to access an about page
+        aboutUsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent aboutUsScreen = new Intent(getApplicationContext(), AboutUs.class);
+
+                startActivity(aboutUsScreen);
+            }
+        });
     }
+
+
 }
+
