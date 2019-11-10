@@ -1,5 +1,10 @@
 package com.example.codbattleplanner;
 
+/**
+ * Created by Kevin Sandy
+ * https://github.com/SpaceJunkee
+ */
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;

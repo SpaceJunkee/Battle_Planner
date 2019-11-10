@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="5dp"
     android:id="@+id/parentLayout"
-    android:background="@color/cardview_dark_background">
+    android:background="@drawable/background_border"
+    >
 
+
+    <Button
+        android:id="@+id/editMap"
+        android:layout_centerInParent="true"
+        android:layout_width="55dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:background="@android:color/transparent"
+        android:text="Edit"
+        android:textColor="#0d7377"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/appTitle"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
