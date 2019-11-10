@@ -10,9 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -31,6 +35,17 @@ public class MainActivity extends AppCompatActivity {
         //Buttons
         Button savedMapsButton = findViewById(R.id.savedMaps);
         Button aboutUsButton = findViewById(R.id.aboutUs);
+        Spinner modeSelect = findViewById(R.id.modeSelect);
+
+        //Create array of items for the spinner
+        String[] modes = {"Domination", "Team DeathMatch", "GunFight"};
+
+        //create an adapter to describe how the items are displayed
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_modeelect, modes);
+
+        //set the spinners adapter to the previously created one.
+        modeSelect.setAdapter(adapter);
 
         //Setting savedMapsButton to access new list activity
         savedMapsButton.setOnClickListener(new View.OnClickListener() {
