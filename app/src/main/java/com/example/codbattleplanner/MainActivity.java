@@ -40,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
         //Create array of items for the spinner
         final String[] modes = {"Small", "Medium", "Large", "Ground War"};
 
-        //create an adapter to describe how the items are displayed
-
+        //Create an adapter to show how items are displayed
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_modeelect, modes);
 
         //set the spinners adapter to the previously created one.
@@ -57,21 +56,18 @@ public class MainActivity extends AppCompatActivity {
                 if(spinnerValue == modes[0]) {
                     mapNames.clear();
                     mapImageUrls.clear();
-                    Toast.makeText(getBaseContext(), "Selected item " + spinnerValue, Toast.LENGTH_SHORT).show();
                     initializeSmallImageBitmaps();
                 }
 
                 if(spinnerValue == modes[1]) {
                     mapNames.clear();
                     mapImageUrls.clear();
-                    Toast.makeText(getBaseContext(), "Selected item " + spinnerValue, Toast.LENGTH_SHORT).show();
                     initializeMediumImageBitmaps();
                 }
 
                 if(spinnerValue == modes[3]) {
                     mapNames.clear();
                     mapImageUrls.clear();
-                    Toast.makeText(getBaseContext(), "Selected item " + spinnerValue, Toast.LENGTH_SHORT).show();
                     initializeGroundWarImageBitmaps();
                 }
 

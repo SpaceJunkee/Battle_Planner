@@ -5,6 +5,7 @@ package com.example.codbattleplanner;
  * https://github.com/SpaceJunkee
  */
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,11 +25,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
-    private static final String TAG = "RecyclerViewAdapter";
-
     //Variables
-    private ArrayList<String> mapNamesArr = new ArrayList<String>();
-    private ArrayList<String> mapImagesArr = new ArrayList<String>();
+    private ArrayList<String> mapNamesArr;
+    private ArrayList<String> mapImagesArr;
     private Context context;
 
     //Constructor
@@ -58,7 +57,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, mapNamesArr.get(position),Toast.LENGTH_SHORT).show();
+
+                //Set up a new intent whenever an element is clicked in the recycler view list
+                Intent intent = new Intent(context,EditMapImage.class);
+                intent.putExtra("image_url", mapImagesArr.get(position));
+                intent.putExtra("name_url", mapNamesArr.get(position));
+                context.startActivity(intent);
             }
         });
     }
