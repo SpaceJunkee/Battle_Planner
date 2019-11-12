@@ -18,12 +18,14 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     //Variables
-    private ArrayList<String> mapNames = new ArrayList<>();
-    private ArrayList<String> mapImageUrls = new ArrayList<>();
+    private List<String> mapNames = new ArrayList<>();
+    private List<String> mapImageUrls = new ArrayList<>();
 
 
     @Override
@@ -128,24 +130,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    CallOfDutyMaps codMaps = new CallOfDutyMaps();
+
     //Gets images and names from the web and stores them in ArrayList
     private void initializeGunfightMapImages(){
-        mapImageUrls.add("https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg");
-        mapNames.add("Gulag Showers");
-        mapImageUrls.add("https://gamewith-en.akamaized.net/img/c321afd782bb344ab3fd05704bfc7dd2.jpg");
-        mapNames.add("Docks");
-        mapImageUrls.add("https://gamewith-en.akamaized.net/img/2c644d3ad10e90930e535079dab4bcbd.jpg");
-        mapNames.add("Pine");
-        mapImageUrls.add("https://gamewith-en.akamaized.net/img/7eb53a33bd8da80deede893ee6e0e11b.jpg");
-        mapNames.add("SpeedBall");
-        mapImageUrls.add("https://gamewith-en.akamaized.net/img/3732cd208b62870854dffa99da83233a.jpg");
-        mapNames.add("Stack");
-        mapImageUrls.add("https://gamewith-en.akamaized.net/img/7886793e001a8b5a2e1322cb2740b726.jpg");
-        mapNames.add("Hill");
-        mapImageUrls.add("https://gamewith-en.akamaized.net/img/c321afd782bb344ab3fd05704bfc7dd2.jpg");
-        mapNames.add("King");
 
-        //Call initializeRecyclerView Method
+        for(String name : codMaps.returnGunfightNames()){
+            mapNames.add(name);
+        }
+
+        for(String image : codMaps.returnGunFightImages()){
+            mapImageUrls.add(image);
+        }
+
+        //Call initializeRecyclerView Method to populate RecyclerView
         initializeRecyclerView();
     }
 

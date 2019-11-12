@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -27,12 +28,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
     //Variables
-    private ArrayList<String> mapNamesArr;
-    private ArrayList<String> mapImagesArr;
+    private List<String> mapNamesArr;
+    private List<String> mapImagesArr;
     private Context context;
 
     //Constructor
-    public RecyclerViewAdapter(Context context, ArrayList<String> mapNamesArr, ArrayList<String> mapImagesArr) {
+    public RecyclerViewAdapter(Context context, List<String> mapNamesArr, List<String> mapImagesArr) {
         this.mapNamesArr = mapNamesArr;
         this.mapImagesArr = mapImagesArr;
         this.context = context;
