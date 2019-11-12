@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -34,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Buttons
-        Button savedMapsButton = findViewById(R.id.savedMaps);
-        Button aboutUsButton = findViewById(R.id.aboutUs);
+        ImageButton savedMapsButton = findViewById(R.id.savedMapsButton);
+        ImageButton aboutUsButton = findViewById(R.id.aboutUs);
 
         //Spinners
         final Spinner modeSelectSpinner = findViewById(R.id.modeSelect);
