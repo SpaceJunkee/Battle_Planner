@@ -23,7 +23,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Variables
+    //ArrayLists that hold mapnames and image urls to be passed to recyclerViewAdapter
     private List<String> mapNames = new ArrayList<>();
     private List<String> mapImageUrls = new ArrayList<>();
 
@@ -36,22 +36,40 @@ public class MainActivity extends AppCompatActivity {
         //Buttons
         Button savedMapsButton = findViewById(R.id.savedMaps);
         Button aboutUsButton = findViewById(R.id.aboutUs);
+
+        //Spinners
         final Spinner modeSelectSpinner = findViewById(R.id.modeSelect);
         final Spinner gameSelectSpinner = findViewById(R.id.gameSelect);
 
-        //Create array of items for the spinner
+        //Create array of items to display for each of the spinners
         final String[] emptySpinner = {"Select a mode"};
-        final String[] gameNames = {"Select a game","Call of Duty", "Counter Strike"};
+        final String[] gameNames = {"Select a game","Call of Duty", "Counter Strike GO","Rainbow Six Siege"};
+
+        //Call of duty spinner names
         final String[] modeNamesCOD = {"Select a mode", "Gunfight", "Domination", "Search & Destroy", "Headquarters", "Team DeathMatch", "Cyber Attack", "Ground War", "Free-For-All",
         "Team Deathmatch 10v10", "Domination 10v10"};
+
+        //Counter Strike GO spinner names
+        final String[] modeNamesCSGO = {"Select a mode", "Competitive",};
+
+        //Rainbow Six Siege spinner names
+        final String[] modeNamesRainbowSix = {"Select a mode", "Secure Area", "Hostage", "Bomb"};
+
 
         //Create an adapter to show how items are displayed for GAMES
         ArrayAdapter<String> adapterGame = new ArrayAdapter<>(this, R.layout.spinner_gameselect, gameNames);
         gameSelectSpinner.setAdapter(adapterGame);//spinner adapter set to game
 
-        //Create an adapter to show how items are displayed for CALL OF DUTY MODES
+        //Adapter to show how items are displayed for CALL OF DUTY modes
         final ArrayAdapter<String> adapterCOD = new ArrayAdapter<>(this, R.layout.spinner_modeelect, modeNamesCOD);
 
+        //Adapter to show how items are displayed for CSGO modes
+        final ArrayAdapter<String> adapterCSGO = new ArrayAdapter<>(this,R.layout.spinner_modeelect, modeNamesCSGO);
+
+        //Adapter to show items displayed for RainbowSix siege modes
+        final ArrayAdapter<String> adapterRainbowSix = new ArrayAdapter<>(this,R.layout.spinner_modeelect, modeNamesRainbowSix);
+
+        //Empty adapter for emtpying the recyclerview when nothing is selected
         final ArrayAdapter<String> empty = new ArrayAdapter<>(this, R.layout.spinner_modeelect, emptySpinner);
 
 
@@ -60,15 +78,22 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String spinnerValueGame = gameSelectSpinner.getSelectedItem().toString();
 
-                if(spinnerValueGame == gameNames[0]){
+                if(spinnerValueGame == gameNames[0]) {
                     mapNames.clear();
                     mapImageUrls.clear();
                     modeSelectSpinner.setAdapter(empty);
                     initializeRecyclerView();
-                }
-                else if(spinnerValueGame == gameNames[1]) {
+
+                }else if(spinnerValueGame == gameNames[1]) {
                     modeSelectSpinner.setAdapter(adapterCOD);//spinner adapter set to cod modes
+
+                }else if(spinnerValueGame == gameNames[2]){
+                    modeSelectSpinner.setAdapter(adapterCSGO);//Spinner adapter set to CSGO modes
+
+                }else if(spinnerValueGame == gameNames[3]){
+                    modeSelectSpinner.setAdapter(adapterRainbowSix);//Spinner adapter set to Rainbow six modes
                 }
+
 
             }
 
@@ -90,11 +115,16 @@ public class MainActivity extends AppCompatActivity {
                     mapNames.clear();
                     mapImageUrls.clear();
                     initializeRecyclerView();
-                }
-                else if(spinnerValueMode == modeNamesCOD[1]) {
+
+                }else if(spinnerValueMode == modeNamesCOD[1]) {
                     mapNames.clear();
                     mapImageUrls.clear();
                     initializeGunfightMapImages();
+
+                }else if(spinnerValueMode == modeNamesCOD[2]){
+                    mapNames.clear();
+                    mapImageUrls.clear();
+                    initializeDominationMapImages();
                 }
 
             }
@@ -130,20 +160,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Create object of CallOfDutyMaps to inialise map images and names
     CallOfDutyMaps codMaps = new CallOfDutyMaps();
 
-    //Gets images and names from the web and stores them in ArrayList
+    //populates mapnames and imageurl lists with image urls and string names
     private void initializeGunfightMapImages(){
 
-        for(String name : codMaps.returnGunfightNames()){
-            mapNames.add(name);
-        }
-
-        for(String image : codMaps.returnGunFightImages()){
-            mapImageUrls.add(image);
+        for(int i = 0; i < codMaps.returnGunFightImagesAndNames().length; i++){
+            mapImageUrls.add(codMaps.returnGunFightImagesAndNames()[i][0]);
+            mapNames.add(codMaps.returnGunFightImagesAndNames()[i][1]);
         }
 
         //Call initializeRecyclerView Method to populate RecyclerView
+        initializeRecyclerView();
+    }
+
+    private void initializeDominationMapImages(){
+        for(int i = 0; i < codMaps.returnDominationImagesAndNames().length; i++){
+            mapImageUrls.add(codMaps.returnDominationImagesAndNames()[i][0]);
+            mapNames.add(codMaps.returnDominationImagesAndNames()[i][1]);
+        }
+
         initializeRecyclerView();
     }
 
