@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     android:textSize="16.5sp"
     android:gravity="left"
-    android:textColor="#eef5b2"
     android:textAlignment="center"
+    android:textColor="#eef5b2"
     android:padding="5dip"
-    android:id="@+id/customModeSelectSpinner"
+    android:id="@+id/customGameSelectSpinner"
     />

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -77,7 +78,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     //Holds widgets in memory and recycles when necessary
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        CircleImageView mapImages;
+        ImageView mapImages;
         TextView mapNames;
 
         //user to attach onClickListener

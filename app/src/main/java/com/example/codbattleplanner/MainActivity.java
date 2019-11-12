@@ -35,30 +35,61 @@ public class MainActivity extends AppCompatActivity {
         Button savedMapsButton = findViewById(R.id.savedMaps);
         Button aboutUsButton = findViewById(R.id.aboutUs);
         final Spinner modeSelectSpinner = findViewById(R.id.modeSelect);
+        final Spinner gameSelectSpinner = findViewById(R.id.gameSelect);
 
         //Create array of items for the spinner
-        final String[] modes = {"Select game mode", "Gunfight", "Domination", "Search & Destroy", "Headquarters", "Team DeathMatch", "Cyber Attack", "Ground War", "Free-For-All",
+        final String[] emptySpinner = {"Select a mode"};
+        final String[] gameNames = {"Select a game","Call of Duty", "Counter Strike"};
+        final String[] modeNamesCOD = {"Select a mode", "Gunfight", "Domination", "Search & Destroy", "Headquarters", "Team DeathMatch", "Cyber Attack", "Ground War", "Free-For-All",
         "Team Deathmatch 10v10", "Domination 10v10"};
 
-        //Create an adapter to show how items are displayed
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_modeelect, modes);
+        //Create an adapter to show how items are displayed for GAMES
+        ArrayAdapter<String> adapterGame = new ArrayAdapter<>(this, R.layout.spinner_gameselect, gameNames);
+        gameSelectSpinner.setAdapter(adapterGame);//spinner adapter set to game
 
-        //set the spinners adapter to the previously created one.
-        modeSelectSpinner.setAdapter(adapter);
+        //Create an adapter to show how items are displayed for CALL OF DUTY MODES
+        final ArrayAdapter<String> adapterCOD = new ArrayAdapter<>(this, R.layout.spinner_modeelect, modeNamesCOD);
+
+        final ArrayAdapter<String> empty = new ArrayAdapter<>(this, R.layout.spinner_modeelect, emptySpinner);
+
+
+        gameSelectSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String spinnerValueGame = gameSelectSpinner.getSelectedItem().toString();
+
+                if(spinnerValueGame == gameNames[0]){
+                    mapNames.clear();
+                    mapImageUrls.clear();
+                    modeSelectSpinner.setAdapter(empty);
+                    initializeRecyclerView();
+                }
+                else if(spinnerValueGame == gameNames[1]) {
+                    modeSelectSpinner.setAdapter(adapterCOD);//spinner adapter set to cod modes
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+
+        });
 
         //Change the list items based on which mode is selected in spinner drop down menu
         //Checks to see which element of the array you are on and populates the list with the items in mapsImages and mapNames arrayLists
         modeSelectSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String spinnerValue = modeSelectSpinner.getSelectedItem().toString();
+                String spinnerValueMode = modeSelectSpinner.getSelectedItem().toString();
 
-                if(spinnerValue == modes[0]){
+                if(spinnerValueMode == modeNamesCOD[0]){
                     mapNames.clear();
                     mapImageUrls.clear();
                     initializeRecyclerView();
                 }
-                else if(spinnerValue == modes[1]) {
+                else if(spinnerValueMode == modeNamesCOD[1]) {
                     mapNames.clear();
                     mapImageUrls.clear();
                     initializeGunfightMapImages();
@@ -68,10 +99,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                mapNames.clear();
-                mapImageUrls.clear();
+
             }
+
         });
+
+
 
         //Setting savedMapsButton to access new list activity
         savedMapsButton.setOnClickListener(new View.OnClickListener() {

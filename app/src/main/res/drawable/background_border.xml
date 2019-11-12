@@ -7,10 +7,10 @@
             android:color="#0E0C0C"/>
 
         <!-- round corners -->
-        <corners android:bottomLeftRadius="0dp"
-            android:topLeftRadius="0dp"
+        <corners android:topLeftRadius="0dp"
             android:bottomRightRadius="0dp"
-            android:topRightRadius="0dp" />
+            android:topRightRadius="0dp"
+            android:bottomLeftRadius="0dp" />
 
         <!-- fill the rest of your background, use transparent if you only want the border -->
         <gradient android:startColor="@android:color/transparent"

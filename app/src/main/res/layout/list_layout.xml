@@ -10,26 +10,30 @@
     >
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
+
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/mapImage"
-        android:src="@mipmap/ic_launcher"/>
-
-
-
+        android:src="@mipmap/ic_launcher"
+        />
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gulag Showers"
         android:id="@+id/mapName"
-        android:layout_toRightOf="@id/mapImage"
-        android:textColor="#14ffec"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:textSize="17sp"/>
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/mapImage"
+        android:background="#212121"
+        android:paddingTop="27dp"
+        android:text="Gulag Showers"
+        android:paddingLeft="30dp"
+        android:textColor="#eef5b2"
+        android:textSize="17sp"
+        />
 
 
 
