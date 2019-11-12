@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 
-import org.w3c.dom.Text;
-
 /**
  * Code written by Kevin Sandy
  * https://github.com/SpaceJunkee
@@ -23,7 +21,9 @@ public class EditMapImage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_edit_gallery);
 
+
         checkIntent();
+
     }
 
     //This will check to see if the intent extras exist and if they do get the extra
@@ -45,6 +45,12 @@ public class EditMapImage extends AppCompatActivity {
 
         //Set the Image
         ImageView imageView = findViewById(R.id.mapEditScreen);
+
         Glide.with(this).asBitmap().load(imageUrl).into(imageView);
+
+
+
+
+
     }
 }

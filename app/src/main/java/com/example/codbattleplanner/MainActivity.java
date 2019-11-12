@@ -16,7 +16,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -38,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         final Spinner modeSelectSpinner = findViewById(R.id.modeSelect);
 
         //Create array of items for the spinner
-        final String[] modes = {"Small", "Medium", "Large", "Ground War"};
+        final String[] modes = {"Select game mode", "Gunfight", "Domination", "Search & Destroy", "Headquarters", "Team DeathMatch", "Cyber Attack", "Ground War", "Free-For-All",
+        "Team Deathmatch 10v10", "Domination 10v10"};
 
         //Create an adapter to show how items are displayed
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_modeelect, modes);
@@ -53,29 +53,23 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String spinnerValue = modeSelectSpinner.getSelectedItem().toString();
 
-                if(spinnerValue == modes[0]) {
+                if(spinnerValue == modes[0]){
                     mapNames.clear();
                     mapImageUrls.clear();
-                    initializeSmallImageBitmaps();
+                    initializeRecyclerView();
                 }
-
-                if(spinnerValue == modes[1]) {
+                else if(spinnerValue == modes[1]) {
                     mapNames.clear();
                     mapImageUrls.clear();
-                    initializeMediumImageBitmaps();
-                }
-
-                if(spinnerValue == modes[3]) {
-                    mapNames.clear();
-                    mapImageUrls.clear();
-                    initializeGroundWarImageBitmaps();
+                    initializeGunfightMapImages();
                 }
 
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                mapNames.clear();
+                mapImageUrls.clear();
             }
         });
 
@@ -102,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Gets images and names from the web and stores them in ArrayList
-    private void initializeSmallImageBitmaps(){
+    private void initializeGunfightMapImages(){
         mapImageUrls.add("https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg");
         mapNames.add("Gulag Showers");
         mapImageUrls.add("https://gamewith-en.akamaized.net/img/c321afd782bb344ab3fd05704bfc7dd2.jpg");
@@ -122,23 +116,7 @@ public class MainActivity extends AppCompatActivity {
         initializeRecyclerView();
     }
 
-    private void initializeMediumImageBitmaps(){
-        mapImageUrls.add("https://gamewith-en.akamaized.net/img/258bf23d7f2ef247693e87b8265a3d77.jpg");
-        mapNames.add("Aniyah Palace");
 
-        //Call initializeRecyclerView Method
-        initializeRecyclerView();
-    }
-
-    private void initializeGroundWarImageBitmaps(){
-        mapImageUrls.add("https://gamewith-en.akamaized.net/img/e2db7a616d3ef34858fde74374aa50e8.jpg");
-        mapNames.add("Tavorsk District");
-        mapImageUrls.add("https://gamewith-en.akamaized.net/img/3706b43ff736d9f44a9216a99078a347.jpg");
-        mapNames.add("Krovnik Farmland");
-
-        //Call initializeRecyclerView Method
-        initializeRecyclerView();
-    }
 
     private void initializeRecyclerView(){
          RecyclerView recyclerView = findViewById(R.id.mapsReyclerList);
