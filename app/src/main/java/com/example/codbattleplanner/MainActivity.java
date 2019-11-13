@@ -1,7 +1,7 @@
 package com.example.codbattleplanner;
 
 /**
- * Created by Kevin Sandy
+ * Code written by Kevin Sandy
  * https://github.com/SpaceJunkee
  */
 
@@ -24,7 +24,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    //ArrayLists that hold mapnames and image urls to be passed to recyclerViewAdapter
+    //ArrayLists that hold map names and image urls to be passed to recyclerViewAdapter
     private List<String> mapNames = new ArrayList<>();
     private List<String> mapImageUrls = new ArrayList<>();
 
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         //Empty adapter for emtpying the recyclerview when nothing is selected
         final ArrayAdapter<String> empty = new ArrayAdapter<>(this, R.layout.spinner_modeelect, emptySpinner);
 
-
+        //Select a game
         gameSelectSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     mapNames.clear();
                     mapImageUrls.clear();
                     modeSelectSpinner.setAdapter(empty);
-                    initializeRecyclerView();
+                    initializeRecyclerViewMain();
 
                 }else if(spinnerValueGame == gameNames[1]) {
                     modeSelectSpinner.setAdapter(adapterCOD);//spinner adapter set to cod modes
@@ -113,19 +113,19 @@ public class MainActivity extends AppCompatActivity {
                 String spinnerValueMode = modeSelectSpinner.getSelectedItem().toString();
 
                 if(spinnerValueMode == modeNamesCOD[0]){
-                    mapNames.clear();
-                    mapImageUrls.clear();
-                    initializeRecyclerView();
+                    clearImagesAndNamesLists();
 
                 }else if(spinnerValueMode == modeNamesCOD[1]) {
-                    mapNames.clear();
-                    mapImageUrls.clear();
+                    clearImagesAndNamesLists();
                     initializeGunfightMapImages();
 
                 }else if(spinnerValueMode == modeNamesCOD[2]){
-                    mapNames.clear();
-                    mapImageUrls.clear();
+                    clearImagesAndNamesLists();
                     initializeDominationMapImages();
+
+                }else if(spinnerValueMode == modeNamesCOD[3]){
+                    clearImagesAndNamesLists();
+                    initializeSearchAndDestroyMapImages();
                 }
 
             }
@@ -159,9 +159,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }//onCreate Method
+
+    //Method to clear both ArrayLists and repopulate new lists
+    public void clearImagesAndNamesLists(){
+        mapNames.clear();
+        mapImageUrls.clear();
+        initializeRecyclerViewMain();
     }
 
-    //Create object of CallOfDutyMaps to inialise map images and names
+    //Create object of CallOfDutyMaps to initialize map images and names
     CallOfDutyMaps codMaps = new CallOfDutyMaps();
 
     //populates mapnames and imageurl lists with image urls and string names
@@ -173,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Call initializeRecyclerView Method to populate RecyclerView
-        initializeRecyclerView();
+        initializeRecyclerViewMain();
     }
 
     private void initializeDominationMapImages(){
@@ -182,12 +189,31 @@ public class MainActivity extends AppCompatActivity {
             mapNames.add(codMaps.returnDominationImagesAndNames()[i][1]);
         }
 
-        initializeRecyclerView();
+        initializeRecyclerViewMain();
     }
 
+    private void initializeSearchAndDestroyMapImages(){
+        for(int i = 0; i < codMaps.returnSearchAndDestroyImagesAndNames().length; i++){
+            mapImageUrls.add(codMaps.returnSearchAndDestroyImagesAndNames()[i][0]);
+            mapNames.add(codMaps.returnSearchAndDestroyImagesAndNames()[i][1]);
+        }
 
+        initializeRecyclerViewMain();
+    }
 
-    private void initializeRecyclerView(){
+    //Create object of CounterStrikeGOMaps to initialize map images and names
+    CounterStrikeGOMaps cSGOMaps = new CounterStrikeGOMaps();
+
+    private void initializeCompetitiveMapImages(){
+        for(int i = 0; i < cSGOMaps.returnCompetitiveImagesAndNames().length; i++){
+            mapImageUrls.add(cSGOMaps.returnCompetitiveImagesAndNames()[i][0]);
+            mapNames.add(cSGOMaps.returnCompetitiveImagesAndNames()[i][1]);
+        }
+
+        initializeRecyclerViewMain();
+    }
+
+    private void initializeRecyclerViewMain(){
          RecyclerView recyclerView = findViewById(R.id.mapsReyclerList);
          RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mapNames, mapImageUrls);
          recyclerView.setAdapter(adapter);

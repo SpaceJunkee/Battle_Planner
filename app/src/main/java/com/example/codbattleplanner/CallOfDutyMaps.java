@@ -57,4 +57,30 @@ public class CallOfDutyMaps {
         return dominationImagesAndNames;
     }
 
+    public String[][] returnSearchAndDestroyImagesAndNames(){
+        String[][] searchAndDestroyImagesAndNames = new String[10][2];
+
+        searchAndDestroyImagesAndNames[0][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        searchAndDestroyImagesAndNames[1][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        searchAndDestroyImagesAndNames[2][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        searchAndDestroyImagesAndNames[3][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        searchAndDestroyImagesAndNames[4][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        searchAndDestroyImagesAndNames[5][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        searchAndDestroyImagesAndNames[6][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        searchAndDestroyImagesAndNames[7][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        searchAndDestroyImagesAndNames[8][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        searchAndDestroyImagesAndNames[9][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        searchAndDestroyImagesAndNames[0][1] = "Aniyah Palace";
+        searchAndDestroyImagesAndNames[1][1] = "Azhir Cave";
+        searchAndDestroyImagesAndNames[2][1] = "Akrlov Peak";
+        searchAndDestroyImagesAndNames[3][1] = "Euphrates Bridge";
+        searchAndDestroyImagesAndNames[4][1] = "Grazna Raid";
+        searchAndDestroyImagesAndNames[5][1] = "Gun Runner";
+        searchAndDestroyImagesAndNames[6][1]= "Hackney Yard";
+        searchAndDestroyImagesAndNames[7][1]= "Piccadilly";
+        searchAndDestroyImagesAndNames[8][1]= "Rammaza";
+        searchAndDestroyImagesAndNames[9][1]= "St. Petrograd";
+
+        return searchAndDestroyImagesAndNames;
+    }
 }

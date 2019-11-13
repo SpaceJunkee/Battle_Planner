@@ -1,8 +1,12 @@
 package com.example.codbattleplanner;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.annotation.Nullable;
@@ -21,8 +25,18 @@ public class EditMapImage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_edit_gallery);
 
-
         checkIntent();
+
+        //Find savebutton
+        ImageButton saveMapButton = findViewById(R.id.saveEditImagebutton);
+
+        saveMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
