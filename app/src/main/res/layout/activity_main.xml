@@ -59,7 +59,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/title" />
+        app:srcCompat="@drawable/title1" />
 
     <ImageButton
         android:id="@+id/savedMapsButton"
@@ -74,17 +74,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/saved_maps" />
 
-    <ImageButton
+    <Button
         android:id="@+id/aboutUs"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="#00FFFFFF"
+        android:background="@drawable/roundbutton"
         android:padding="1dp"
         android:scaleType="fitXY"
+        android:text="ABOUT US"
+        android:textColor="#14FFEC"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/about_us" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

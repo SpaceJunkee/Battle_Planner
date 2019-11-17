@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
         //Buttons
         ImageButton savedMapsButton = findViewById(R.id.savedMapsButton);
-        ImageButton aboutUsButton = findViewById(R.id.aboutUs);
+        Button aboutUsButton = findViewById(R.id.aboutUs);
 
         //Spinners
         final Spinner modeSelectSpinner = findViewById(R.id.modeSelect);

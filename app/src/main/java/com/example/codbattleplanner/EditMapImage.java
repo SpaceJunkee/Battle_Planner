@@ -27,7 +27,10 @@ public class EditMapImage extends AppCompatActivity {
 
         checkIntent();
 
-        //Find savebutton
+        DrawOnTouch drawOnTouch = new DrawOnTouch(this);
+        setContentView(drawOnTouch);
+
+        /*//Find savebutton
         ImageButton saveMapButton = findViewById(R.id.saveEditImagebutton);
 
         saveMapButton.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +39,7 @@ public class EditMapImage extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
     }
 

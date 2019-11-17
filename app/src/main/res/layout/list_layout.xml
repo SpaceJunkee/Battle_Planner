@@ -31,7 +31,7 @@
         android:paddingTop="27dp"
         android:text="Gulag Showers"
         android:paddingLeft="30dp"
-        android:textColor="#eef5b2"
+        android:textColor="#e1e1e1"
         android:textSize="17sp"
         />
 

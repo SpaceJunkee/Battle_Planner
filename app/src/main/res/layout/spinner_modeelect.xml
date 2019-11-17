@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:textSize="16.5sp"
     android:gravity="left"
-    android:textColor="#eef5b2"
+    android:textColor="#e1e1e1"
     android:textAlignment="center"
     android:padding="5dip"
     android:id="@+id/customModeSelectSpinner"
