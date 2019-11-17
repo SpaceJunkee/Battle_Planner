@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.OnElementListener {
 
     //ArrayLists that hold map names and image urls to be passed to recyclerViewAdapter
     private List<String> mapNames = new ArrayList<>();
@@ -215,10 +215,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeRecyclerViewMain(){
          RecyclerView recyclerView = findViewById(R.id.mapsReyclerList);
-         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mapNames, mapImageUrls);
+         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mapNames, mapImageUrls, this);
          recyclerView.setAdapter(adapter);
          recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    @Override
+    public void onElementClick(int position) {
+        Intent intent = new Intent(this,EditMapImage.class);
+        intent.putExtra("image_url", mapImageUrls.get(position));
+        intent.putExtra("name_url", mapNames.get(position));
+        this.startActivity(intent);
+    }
 }
 
