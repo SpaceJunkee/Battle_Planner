@@ -14,6 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 
@@ -48,7 +50,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     //Will get the items per each position in the list
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Glide.with(context).asBitmap().load(mapImagesArr.get(position)).into(holder.mapImages);
+        Picasso.get().load(mapImagesArr.get(position)).into(holder.mapImages);
 
         holder.mapNames.setText(mapNamesArr.get(position));
 

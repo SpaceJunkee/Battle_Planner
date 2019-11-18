@@ -12,8 +12,8 @@ public class CallOfDutyMaps {
     public String[][] returnGunFightImagesAndNames(){
         String[][] gunFightImagesAndNames = new String[7][2];
 
-        gunFightImagesAndNames[0][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
-        gunFightImagesAndNames[1][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        gunFightImagesAndNames[0][0] = "https://toppng.com/public/uploads/preview/ickle-rick-face-transparent-i-m-pickle-rick-transparent-11562912599pz5i2v9bog.png";
+        gunFightImagesAndNames[1][0] = "https://i.cdn.turner.com/adultswim/big/img/2018/01/09/RickMorty2_Marathon_2.jpg";
         gunFightImagesAndNames[2][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
         gunFightImagesAndNames[3][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
         gunFightImagesAndNames[4][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";

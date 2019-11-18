@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 /**
  * Code written by Kevin Sandy
@@ -27,10 +28,8 @@ public class EditMapImage extends AppCompatActivity {
 
         checkIntent();
 
-        DrawOnTouch drawOnTouch = new DrawOnTouch(this);
-        setContentView(drawOnTouch);
 
-        /*//Find savebutton
+        //Find savebutton
         ImageButton saveMapButton = findViewById(R.id.saveEditImagebutton);
 
         saveMapButton.setOnClickListener(new View.OnClickListener() {
@@ -39,7 +38,7 @@ public class EditMapImage extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
 
     }
 
@@ -63,7 +62,7 @@ public class EditMapImage extends AppCompatActivity {
         //Set the Image
         ImageView imageView = findViewById(R.id.mapEditScreen);
 
-        Glide.with(this).asBitmap().load(imageUrl).into(imageView);
+        Picasso.get().load(imageUrl).into(imageView);
 
 
 
