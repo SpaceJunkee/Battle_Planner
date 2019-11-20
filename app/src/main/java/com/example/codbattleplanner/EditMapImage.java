@@ -1,10 +1,8 @@
 package com.example.codbattleplanner;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,11 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
-
-import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+
 
 /**
  * Code written by Kevin Sandy
@@ -66,6 +61,7 @@ public class EditMapImage extends AppCompatActivity {
         //Set the Image
         PaintImageView imageView = findViewById(R.id.mapEditScreen);
         Picasso.get().load(imageUrl).into(imageView);
+
 
 
     }

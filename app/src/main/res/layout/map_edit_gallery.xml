@@ -12,24 +12,36 @@
         android:id="@+id/mapNameEditor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="0dp"
         android:text="Hello World"
+        android:textAlignment="center"
         android:textColor="#F5E0E0"
-        android:textSize="20sp"
-        android:textAlignment="center"/>
-
+        android:textSize="20sp" />
 
     <ImageButton
         android:id="@+id/saveEditImagebutton"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_below="@+id/mapNameEditor"
+        android:layout_alignEnd="@id/mapEditScreen"
         android:layout_gravity="end"
         android:layout_marginTop="5dp"
         android:backgroundTint="#00FFFFFF"
         android:tint="#64FFDA"
         app:srcCompat="@android:drawable/ic_menu_save" />
+
+    <ImageButton
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/mapNameEditor"
+        android:layout_gravity="end"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@id/saveEditImagebutton"
+        android:backgroundTint="#00FFFFFF"
+        android:tint="#64FFDA"
+        app:srcCompat="@android:drawable/ic_popup_sync" />
 
     <com.example.codbattleplanner.PaintImageView
         android:id="@+id/mapEditScreen"
@@ -38,5 +50,36 @@
         android:layout_height="match_parent"
         android:layout_weight="100"
         android:scaleType="centerCrop" />
+
+    <Button
+        android:id="@+id/redButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/mapNameEditor"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="3dp"
+        android:background="@drawable/paint_button_red" />
+
+    <Button
+        android:id="@+id/purpleButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/mapNameEditor"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/redButton"
+        android:background="@drawable/paint_button_purple" />
+
+    <Button
+        android:id="@+id/greenButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/mapNameEditor"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="3dp"
+        android:layout_toRightOf="@+id/purpleButton"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/paint_button_green" />
 
 </RelativeLayout>
