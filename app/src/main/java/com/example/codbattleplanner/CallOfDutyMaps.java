@@ -15,9 +15,9 @@ public class CallOfDutyMaps {
         gunFightImagesAndNames[0][0] = "https://toppng.com/public/uploads/preview/ickle-rick-face-transparent-i-m-pickle-rick-transparent-11562912599pz5i2v9bog.png";
         gunFightImagesAndNames[1][0] = "https://i.cdn.turner.com/adultswim/big/img/2018/01/09/RickMorty2_Marathon_2.jpg";
         gunFightImagesAndNames[2][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
-        gunFightImagesAndNames[3][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        gunFightImagesAndNames[3][0] = "https://www.cod4central.com/images/cod4maps/overgrownhuge.jpg";
         gunFightImagesAndNames[4][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
-        gunFightImagesAndNames[5][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        gunFightImagesAndNames[5][0] = "https://gamewith-en.akamaized.net/img/original_21a990c2f4d0a0cb7a7b4945fb76e5f9.jpg";
         gunFightImagesAndNames[6][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
         gunFightImagesAndNames[0][1] = "Gulag Showers";
         gunFightImagesAndNames[1][1] = "Docks";

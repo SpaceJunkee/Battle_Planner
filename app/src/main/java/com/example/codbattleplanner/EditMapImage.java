@@ -13,7 +13,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+
+import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 /**
  * Code written by Kevin Sandy
@@ -50,6 +53,7 @@ public class EditMapImage extends AppCompatActivity {
             String nameUrl = getIntent().getStringExtra("name_url");
 
             setMapImage(imageUrl, nameUrl);
+
         }
     }
 
@@ -60,12 +64,8 @@ public class EditMapImage extends AppCompatActivity {
         name.setText(nameUrl);
 
         //Set the Image
-        ImageView imageView = findViewById(R.id.mapEditScreen);
-
+        PaintImageView imageView = findViewById(R.id.mapEditScreen);
         Picasso.get().load(imageUrl).into(imageView);
-
-
-
 
 
     }
