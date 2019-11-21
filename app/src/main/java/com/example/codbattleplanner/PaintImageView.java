@@ -8,10 +8,11 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
+
+import java.util.ArrayList;
 
 /**
  * Code written by Kevin Sandy
@@ -24,9 +25,13 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
     private final int MIN_DOT_SIZE = 5;
     private int dotSize;
 
-
+    //Set default pen coulour
     private int penColour;
     private final int DEFAULT_COLOUR = Color.parseColor("#F82323");
+
+    //instead of having one path we can have multiple so each colour can be set to new paint object
+    private ArrayList<Path> pathsArrList;
+    private ArrayList<Paint> paintsArrList;
 
     private Path path;
     private Paint paint;
@@ -50,7 +55,7 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
 
     public void setPenColour(int penColour) {
         this.penColour = penColour;
-        this.paint.setColor(penColour);
+
     }
 
     public int getPenColour() {
@@ -60,15 +65,23 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
     private void initVariables() {
         dotSize = DEFAULT_DOT_SIZE;
         penColour = DEFAULT_COLOUR;
+
+        this.pathsArrList = new ArrayList<Path>();
+        this.paintsArrList = new ArrayList<Paint>();
+
         path = new Path();
         pointX = pointY = (float) 0.0;
         this.setOnTouchListener(this);
 
-        this.initPaint();
+        this.addPath();
     }
 
-    private void initPaint(){
+    private void addPath(){
+        path = new Path();
+        pathsArrList.add(path);
         paint = new Paint();
+        paintsArrList.add(paint);
+
         paint.setColor(penColour);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(dotSize);
@@ -87,7 +100,18 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
     @Override
     protected void onDraw(Canvas canvas){
         super.onDraw(canvas);
-        canvas.drawPath(path,paint);
+
+        //iterate through arrLists and draw them all instead of one
+        for(int i = 0; i < pathsArrList.size(); i++){
+            canvas.drawPath(pathsArrList.get(i),paintsArrList.get(i));
+
+        }
+    }
+
+    //Functionality for reset button
+    public void resetPaint(){
+        this.initVariables();
+        this.invalidate();
     }
 
     @Override
@@ -97,6 +121,7 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
 
         switch(motionEvent.getAction()){
             case MotionEvent.ACTION_DOWN:
+                this.addPath();
                 this.path.moveTo(pointX,pointY);
                 break;
                 case MotionEvent.ACTION_MOVE:

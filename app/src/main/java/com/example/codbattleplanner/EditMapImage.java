@@ -121,13 +121,11 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.dotPlusButton: paintImageView.changeDotSize(+DOT_SIZE_INCREMENT);
                 displayDotSize.setText(paintImageView.getDotSize());
-                Toast.makeText(this, "PLUS",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.dotMinusButton: paintImageView.changeDotSize(-DOT_SIZE_INCREMENT);
                 displayDotSize.setText(paintImageView.getDotSize());
-                Toast.makeText(this, "MINUS",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.resetButton: //paintImageView.resetPaint();
+            case R.id.resetButton: paintImageView.resetPaint();
                 Toast.makeText(this, "RESET",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.saveEditImagebutton:

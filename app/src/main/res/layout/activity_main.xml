@@ -51,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/title"
         android:layout_width="210dp"
         android:layout_height="95dp"
         android:layout_marginTop="12dp"
