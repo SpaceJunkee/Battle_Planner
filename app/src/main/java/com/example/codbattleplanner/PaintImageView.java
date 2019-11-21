@@ -36,7 +36,7 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
     private Path path;
     private Paint paint;
 
-    private float pointX, pointY;
+    private float pointX, pointY, oldPointX, oldPointY;
 
     public PaintImageView(Context context) {
         super(context);
@@ -70,20 +70,25 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
         this.paintsArrList = new ArrayList<Paint>();
 
         path = new Path();
-        pointX = pointY = (float) 0.0;
+        this.pointX = this.pointY = this.oldPointX = this.oldPointY = (float) 0.0;
         this.setOnTouchListener(this);
 
-        this.addPath();
+        this.addPath(false);
     }
 
-    private void addPath(){
+    private void addPath(boolean fill){
         path = new Path();
         pathsArrList.add(path);
         paint = new Paint();
         paintsArrList.add(paint);
 
         paint.setColor(penColour);
-        paint.setStyle(Paint.Style.STROKE);
+
+        //Decide whether you want to fill cirlce or set stroke
+        if(!fill){
+            paint.setStyle(Paint.Style.STROKE);
+            }
+
         paint.setStrokeWidth(dotSize);
     }
 
@@ -121,17 +126,28 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
 
         switch(motionEvent.getAction()){
             case MotionEvent.ACTION_DOWN:
-                this.addPath();
+                this.addPath(true);
+                this.path.addCircle(pointX,pointY,dotSize/2,Path.Direction.CW);
+                this.addPath(false);
                 this.path.moveTo(pointX,pointY);
                 break;
                 case MotionEvent.ACTION_MOVE:
                     this.path.lineTo(pointX,pointY);
                     break;
                     case MotionEvent.ACTION_UP:
+                        this.addPath(true);
+                        if(oldPointX == pointX && oldPointY == pointY){
+                            //If they match put a circle on screen at this location
+                            this.path.addCircle(pointX,pointY,dotSize/2,Path.Direction.CW);
+                        }
                         break;
         }
 
         this.invalidate();
+
+        //update old values to new values to track on touch paint
+        oldPointX = pointX;
+        oldPointY = pointY;
 
         return true;
     }

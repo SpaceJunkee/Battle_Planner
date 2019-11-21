@@ -126,6 +126,7 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
                 displayDotSize.setText(paintImageView.getDotSize());
                 break;
             case R.id.resetButton: paintImageView.resetPaint();
+                displayDotSize.setText(paintImageView.getDotSize());
                 Toast.makeText(this, "RESET",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.saveEditImagebutton:
