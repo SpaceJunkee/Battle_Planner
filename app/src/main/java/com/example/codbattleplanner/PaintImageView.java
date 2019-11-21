@@ -24,9 +24,9 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
     private final int MIN_DOT_SIZE = 5;
     private int dotSize;
 
-    private int defaultDotSize = 10;
+
     private int penColour;
-    private final int DEFAULT_COLOUR = Color.RED;
+    private final int DEFAULT_COLOUR = Color.parseColor("#F82323");
 
     private Path path;
     private Paint paint;
@@ -50,6 +50,7 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
 
     public void setPenColour(int penColour) {
         this.penColour = penColour;
+        this.paint.setColor(penColour);
     }
 
     public int getPenColour() {
@@ -57,15 +58,20 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
     }
 
     private void initVariables() {
-        dotSize = defaultDotSize;
+        dotSize = DEFAULT_DOT_SIZE;
         penColour = DEFAULT_COLOUR;
         path = new Path();
+        pointX = pointY = (float) 0.0;
+        this.setOnTouchListener(this);
+
+        this.initPaint();
+    }
+
+    private void initPaint(){
         paint = new Paint();
         paint.setColor(penColour);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(10);
-        this.setOnTouchListener(this);
-        pointX = pointY = (float) 0.0;
+        paint.setStrokeWidth(dotSize);
     }
 
     public String getDotSize(){

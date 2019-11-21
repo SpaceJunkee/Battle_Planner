@@ -1,5 +1,6 @@
 package com.example.codbattleplanner;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -106,13 +107,16 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
         //Find which button was pressed
 
         switch(view.getId()){
-            case R.id.redButton:
+            case R.id.redButton: paintImageView.setPenColour(Color.parseColor("#F82323"));
+                paintImageView.getPenColour();
                 Toast.makeText(this, "RED",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.purpleButton:
+            case R.id.purpleButton: paintImageView.setPenColour(Color.parseColor("#7C4DFF"));
+                paintImageView.getPenColour();
                 Toast.makeText(this, "PURPLE",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.greenButton:
+            case R.id.greenButton: paintImageView.setPenColour(Color.parseColor("#00C853"));
+                paintImageView.getPenColour();
                 Toast.makeText(this, "GREEN",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.dotPlusButton: paintImageView.changeDotSize(+DOT_SIZE_INCREMENT);
@@ -123,7 +127,7 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
                 displayDotSize.setText(paintImageView.getDotSize());
                 Toast.makeText(this, "MINUS",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.resetButton:
+            case R.id.resetButton: //paintImageView.resetPaint();
                 Toast.makeText(this, "RESET",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.saveEditImagebutton:
