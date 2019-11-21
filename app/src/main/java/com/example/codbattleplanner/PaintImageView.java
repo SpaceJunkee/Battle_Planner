@@ -18,7 +18,12 @@ import androidx.appcompat.widget.AppCompatImageView;
  * https://github.com/SpaceJunkee
  */
 public class PaintImageView extends AppCompatImageView implements View.OnTouchListener {
+    //set a default max and min dot size so user can change size of drawing line
+    private final int DEFAULT_DOT_SIZE = 10;
+    private final int MAX_DOT_SIZE = 100;
+    private final int MIN_DOT_SIZE = 5;
     private int dotSize;
+
     private int defaultDotSize = 10;
     private int penColour;
     private final int DEFAULT_COLOUR = Color.RED;
@@ -63,12 +68,14 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
         pointX = pointY = (float) 0.0;
     }
 
-    public int getDotSize(){
-        return dotSize;
+    public String getDotSize(){
+        return String.valueOf(dotSize);
     }
 
     public void changeDotSize(int increment){
         this.dotSize += increment;
+        this.dotSize = Math.max(dotSize,MIN_DOT_SIZE);
+        this.dotSize = Math.min(dotSize,MAX_DOT_SIZE);
     }
 
     @Override

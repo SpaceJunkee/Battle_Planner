@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#212121"
@@ -81,5 +82,46 @@
         android:layout_toRightOf="@+id/purpleButton"
         android:layout_marginLeft="10dp"
         android:background="@drawable/paint_button_green" />
+
+    <Button
+        android:id="@+id/dotPlusButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/mapNameEditor"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="3dp"
+        android:layout_toRightOf="@+id/greenButton"
+        android:background="@android:color/transparent"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/dotMinusButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/mapNameEditor"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="3dp"
+        android:layout_toRightOf="@+id/dotPlusButton"
+        android:background="@android:color/transparent"
+        android:text="-"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/dotSize"
+        android:layout_width="35dp"
+        android:text=""
+        android:layout_height="30dp"
+        android:layout_below="@+id/mapNameEditor"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/dotMinusButton"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
 
 </RelativeLayout>
