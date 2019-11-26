@@ -22,7 +22,7 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
     //set a default max and min dot size so user can change size of drawing line
     private final int DEFAULT_DOT_SIZE = 10;
     private final int MAX_DOT_SIZE = 100;
-    private final int MIN_DOT_SIZE = 5;
+    private final int MIN_DOT_SIZE = 10;
     private int dotSize;
 
     //Set default pen coulour
@@ -62,6 +62,7 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
         return penColour;
     }
 
+    //Initialize Instance variables
     private void initVariables() {
         dotSize = DEFAULT_DOT_SIZE;
         penColour = DEFAULT_COLOUR;
@@ -76,6 +77,7 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
         this.addPath(false);
     }
 
+    //Adds path and paint to ArrayLists
     private void addPath(boolean fill){
         path = new Path();
         pathsArrList.add(path);
@@ -96,6 +98,7 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
         return String.valueOf(dotSize);
     }
 
+    //Change size of line to draw
     public void changeDotSize(int increment){
         this.dotSize += increment;
         this.dotSize = Math.max(dotSize,MIN_DOT_SIZE);
@@ -119,6 +122,7 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
         this.invalidate();
     }
 
+    //Handle on touch Events for paint drawn by user
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         pointX = motionEvent.getX();

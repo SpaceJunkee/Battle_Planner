@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
         //Call of duty spinner names
         final String[] modeNamesCOD = {"Select a mode", "Gunfight", "Domination", "Search & Destroy", "Headquarters", "Team DeathMatch", "Cyber Attack", "Ground War", "Free-For-All",
-        "Team Deathmatch 10v10", "Domination 10v10"};
+        "TDM 10v10", "Domination 10v10"};
 
         //Counter Strike GO spinner names
         final String[] modeNamesCSGO = {"Select a mode", "Competitive",};

@@ -29,7 +29,7 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
     private ImageButton saveMapButton, resetButton;
     private Button redColourButton, purpleColourButton, greenColourButton, dotSizePlus, dotSizeMinus;
     private TextView displayDotSize;
-    private static final int DOT_SIZE_INCREMENT = 5;
+    private static final int DOT_SIZE_INCREMENT = 10;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
