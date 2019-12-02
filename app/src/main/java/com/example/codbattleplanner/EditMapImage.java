@@ -106,7 +106,6 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onSuccess() {
                 Drawable d = imageView.getDrawable();
-                // TODO: check that d isn't null
 
                 RectF imageRectF = new RectF(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
                 RectF viewRectF = new RectF(0, 0, imageView.getWidth(), imageView.getHeight());
@@ -124,7 +123,10 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
                     photoViewAttacher = new PhotoViewAttacher(imageView);
                     photoViewAttacher.setZoomable(true);
                 }else{
+                    Matrix theMatrix = new Matrix();
+                    photoViewAttacher.getSuppMatrix(theMatrix);
                     photoViewAttacher.setZoomable(false);
+                    photoViewAttacher.setDisplayMatrix(theMatrix);
                     paintImageView.reDraw();
 
                 }
