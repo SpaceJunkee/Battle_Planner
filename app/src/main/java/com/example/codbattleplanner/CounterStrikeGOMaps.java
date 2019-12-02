@@ -10,7 +10,7 @@ public class CounterStrikeGOMaps {
     public String[][] returnCompetitiveImagesAndNames(){
         String[][] competitiveImagesAndNames = new String[7][2];
 
-        competitiveImagesAndNames[0][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
+        competitiveImagesAndNames[0][0] = "https://steamuserimages-a.akamaihd.net/ugc/3282303238906312624/19B3B32FBB3F9335B9DB6123B202BB06F80B3578/";
         competitiveImagesAndNames[1][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
         competitiveImagesAndNames[2][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";
         competitiveImagesAndNames[3][0] = "https://gamewith-en.akamaized.net/img/fd2c975d21cf975979b1389004238b90.jpg";

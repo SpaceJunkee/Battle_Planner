@@ -67,8 +67,8 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
         dotSize = DEFAULT_DOT_SIZE;
         penColour = DEFAULT_COLOUR;
 
-        this.pathsArrList = new ArrayList<Path>();
-        this.paintsArrList = new ArrayList<Paint>();
+        this.pathsArrList = new ArrayList<>();
+        this.paintsArrList = new ArrayList<>();
 
         path = new Path();
         this.pointX = this.pointY = this.oldPointX = this.oldPointY = (float) 0.0;
@@ -106,7 +106,7 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
     }
 
     @Override
-    protected void onDraw(Canvas canvas){
+    public void onDraw(Canvas canvas){
         super.onDraw(canvas);
 
         //iterate through arrLists and draw them all instead of one
@@ -120,6 +120,14 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
     public void resetPaint(){
         this.initVariables();
         this.invalidate();
+    }
+
+    public void reDraw(){
+        path = new Path();
+        this.pointX = this.pointY = this.oldPointX = this.oldPointY = (float) 0.0;
+        this.setOnTouchListener(this);
+
+        this.addPath(false);
     }
 
     //Handle on touch Events for paint drawn by user

@@ -131,6 +131,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                     initializeSearchAndDestroyMapImages();
                 }
 
+                if(spinnerValueMode == modeNamesCSGO[1]){
+                    clearImagesAndNamesLists();
+                    initializeCompetitiveMapImages();
+                }
+
             }
 
             @Override

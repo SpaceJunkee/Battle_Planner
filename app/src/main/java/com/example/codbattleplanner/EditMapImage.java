@@ -1,10 +1,16 @@
 package com.example.codbattleplanner;
 
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,6 +18,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.github.chrisbanes.photoview.PhotoViewAttacher;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 
@@ -24,6 +32,8 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
     //Create new object of PaintImageView
     private PaintImageView paintImageView;
 
+    PhotoViewAttacher photoViewAttacher;
+
     //Instance Variables
     //Find ImageButtons, Buttons, Textview and declare and initialise dot size increment values
     private ImageButton saveMapButton, resetButton;
@@ -35,21 +45,14 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_edit_gallery);
-        initalizeVariables();
+        initializeVariables();
 
         checkIntent();
 
-        /*saveMapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
-            }
-        });*/
 
     }
 
-    private void initalizeVariables() {
+    private void initializeVariables() {
         //Find buttons and associate with variables
         saveMapButton = findViewById(R.id.saveEditImagebutton);
         resetButton = findViewById(R.id.resetButton);
@@ -87,18 +90,46 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void setMapImage(String imageUrl, String nameUrl){
+    Matrix matrix = new Matrix();
+
+    private void setMapImage(final String imageUrl, String nameUrl){
 
         //Set the Text view
         TextView name  = findViewById(R.id.mapNameEditor);
         name.setText(nameUrl);
 
+
         //Set the Image
-        PaintImageView imageView = findViewById(R.id.mapEditScreen);
-        Picasso.get().load(imageUrl).into(imageView);
+        final PaintImageView imageView = findViewById(R.id.mapEditScreen);
+        Picasso.get().load(imageUrl).fit().centerInside().into(imageView,new Callback.EmptyCallback() {
+            //Will center image in middle of imageview with scale type matrix.
+            @Override
+            public void onSuccess() {
+                Drawable d = imageView.getDrawable();
+                // TODO: check that d isn't null
 
+                RectF imageRectF = new RectF(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                RectF viewRectF = new RectF(0, 0, imageView.getWidth(), imageView.getHeight());
+                matrix.setRectToRect(imageRectF, viewRectF, Matrix.ScaleToFit.CENTER);
+                imageView.setImageMatrix(matrix);
+            }
+        });
 
+        //Implement zoom
+        final Switch zoom = findViewById(R.id.zoomSwitch);
 
+        zoom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(zoom.isChecked()){
+                    photoViewAttacher = new PhotoViewAttacher(imageView);
+                    photoViewAttacher.setZoomable(true);
+                }else{
+                    photoViewAttacher.setZoomable(false);
+                    paintImageView.reDraw();
+
+                }
+            }
+        });
     }
 
     //Gets called everytime a button is pressed
