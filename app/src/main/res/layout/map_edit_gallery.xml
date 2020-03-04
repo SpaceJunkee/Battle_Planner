@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#212121"
@@ -21,32 +20,20 @@
         android:textSize="20sp" />
 
     <ImageButton
-        android:id="@+id/saveEditImagebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_below="@+id/mapNameEditor"
-        android:layout_alignEnd="@id/mapEditScreen"
-        android:layout_gravity="end"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#00FFFFFF"
-        android:tint="#64FFDA"
-        app:srcCompat="@android:drawable/ic_menu_save" />
-
-    <ImageButton
         android:id="@+id/resetButton"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_below="@+id/mapNameEditor"
         android:layout_gravity="end"
         android:layout_marginTop="5dp"
-        android:layout_toLeftOf="@id/saveEditImagebutton"
+        android:layout_toRightOf="@id/dotSize"
         android:backgroundTint="#00FFFFFF"
         android:tint="#64FFDA"
         app:srcCompat="@android:drawable/ic_popup_sync" />
 
     <com.example.codbattleplanner.PaintImageView
         android:id="@+id/mapEditScreen"
-        android:layout_below="@+id/saveEditImagebutton"
+        android:layout_below="@+id/resetButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="100"
@@ -88,7 +75,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_below="@+id/mapNameEditor"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="3dp"
         android:layout_marginTop="2dp"
         android:layout_marginRight="3dp"
         android:layout_toRightOf="@+id/dotMinusButton"
@@ -101,9 +88,9 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_below="@+id/mapNameEditor"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="130dp"
         android:layout_marginTop="2dp"
-        android:layout_marginRight="3dp"
+        android:layout_marginRight="10dp"
         android:layout_toRightOf="@+id/greenButton"
         android:background="@android:color/transparent"
         android:text="-"

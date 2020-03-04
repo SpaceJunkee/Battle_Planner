@@ -46,7 +46,6 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
 
     private void initializeVariables() {
         //Find buttons and associate with variables
-        saveMapButton = findViewById(R.id.saveEditImagebutton);
         resetButton = findViewById(R.id.resetButton);
         redColourButton = findViewById(R.id.redButton);
         purpleColourButton = findViewById(R.id.purpleButton);
@@ -55,7 +54,6 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
         dotSizeMinus = findViewById(R.id.dotMinusButton);
 
         //Set on click listeners
-        saveMapButton.setOnClickListener(this);
         resetButton.setOnClickListener(this);
         redColourButton.setOnClickListener(this);
         purpleColourButton.setOnClickListener(this);
@@ -135,9 +133,6 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
             case R.id.resetButton: paintImageView.resetPaint();
                 displayDotSize.setText(paintImageView.getDotSize());
                 Toast.makeText(this, "RESET",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.saveEditImagebutton:
-                Toast.makeText(this, "SAVED",Toast.LENGTH_SHORT).show();
                 break;
 
         }

@@ -36,10 +36,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Buttons
-        ImageButton savedMapsButton = findViewById(R.id.savedMapsButton);
-        Button aboutUsButton = findViewById(R.id.aboutUs);
-
         //Spinners
         final Spinner modeSelectSpinner = findViewById(R.id.modeSelect);
         final Spinner gameSelectSpinner = findViewById(R.id.gameSelect);
@@ -143,28 +139,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
             }
 
-        });
-
-
-
-        //Setting savedMapsButton to access new list activity
-        savedMapsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent savedMapsScreen = new Intent(getApplicationContext(), SavedMapsActivity.class);
-
-                startActivity(savedMapsScreen);
-            }
-        });
-
-        //Setting about button to access an about page
-        aboutUsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent aboutUsScreen = new Intent(getApplicationContext(), AboutUs.class);
-
-                startActivity(aboutUsScreen);
-            }
         });
 
     }//onCreate Method
