@@ -25,7 +25,7 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
     private final int MIN_DOT_SIZE = 10;
     private int dotSize;
 
-    //Set default pen coulour
+    //Set default pen colour
     private int penColour;
     private final int DEFAULT_COLOUR = Color.parseColor("#F82323");
 
@@ -120,14 +120,6 @@ public class PaintImageView extends AppCompatImageView implements View.OnTouchLi
     public void resetPaint(){
         this.initVariables();
         this.invalidate();
-    }
-
-    public void reDraw(){
-        path = new Path();
-        this.pointX = this.pointY = this.oldPointX = this.oldPointY = (float) 0.0;
-        this.setOnTouchListener(this);
-
-        this.addPath(false);
     }
 
     //Handle on touch Events for paint drawn by user

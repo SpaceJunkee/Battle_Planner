@@ -7,14 +7,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,8 +27,6 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
     //Create new object of PaintImageView
     private PaintImageView paintImageView;
 
-    PhotoViewAttacher photoViewAttacher;
-
     //Instance Variables
     //Find ImageButtons, Buttons, Textview and declare and initialise dot size increment values
     private ImageButton saveMapButton, resetButton;
@@ -48,7 +41,6 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
         initializeVariables();
 
         checkIntent();
-
 
     }
 
@@ -114,24 +106,6 @@ public class EditMapImage extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        //Implement zoom
-        final Switch zoom = findViewById(R.id.zoomSwitch);
-
-        zoom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(zoom.isChecked()){
-                    photoViewAttacher = new PhotoViewAttacher(imageView);
-                    photoViewAttacher.setZoomable(true);
-                }else{
-                    Matrix theMatrix = new Matrix();
-                    photoViewAttacher.getSuppMatrix(theMatrix);
-                    photoViewAttacher.setZoomable(false);
-                    photoViewAttacher.setDisplayMatrix(theMatrix);
-                    paintImageView.reDraw();
-
-                }
-            }
-        });
     }
 
     //Gets called everytime a button is pressed
